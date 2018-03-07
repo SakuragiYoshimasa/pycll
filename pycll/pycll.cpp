@@ -458,16 +458,16 @@ static CYTHON_INLINE float __PYX_NAN() {
 
 #define __PYX_HAVE__pycll
 #define __PYX_HAVE_API__pycll
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "numpy/arrayobject.h"
-#include "numpy/ufuncobject.h"
 #include <vector>
 #include "ios"
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "numpy/arrayobject.h"
+#include "numpy/ufuncobject.h"
 #include "ClusterUtils.h"
 #ifdef _OPENMP
 #include <omp.h>
@@ -1424,6 +1424,8 @@ static PyTypeObject *__Pyx_ImportType(const char *module_name, const char *class
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'libcpp.vector' */
+
 /* Module declarations from 'cpython.buffer' */
 
 /* Module declarations from 'libc.string' */
@@ -1453,11 +1455,10 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'libcpp.vector' */
-
 /* Module declarations from 'pycll' */
 static PyTypeObject *__pyx_ptype_5pycll_FindMaxCluster = 0;
 static std::vector<double>  __pyx_convert_vector_from_py_double(PyObject *); /*proto*/
+static std::vector<std::vector<double> >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(PyObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
 #define __Pyx_MODULE_NAME "pycll"
 int __pyx_module_is_main_pycll = 0;
@@ -1508,6 +1509,7 @@ static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
 static int __pyx_pf_5pycll_14FindMaxCluster___cinit__(struct __pyx_obj_5pycll_FindMaxCluster *__pyx_v_self); /* proto */
 static void __pyx_pf_5pycll_14FindMaxCluster_2__dealloc__(struct __pyx_obj_5pycll_FindMaxCluster *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5pycll_14FindMaxCluster_4find_max_cluster_statistics_1d(struct __pyx_obj_5pycll_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
+static PyObject *__pyx_pf_5pycll_14FindMaxCluster_6find_max_cluster_statistics_2d(struct __pyx_obj_5pycll_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tp_new_5pycll_FindMaxCluster(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -1633,8 +1635,8 @@ static void __pyx_pf_5pycll_14FindMaxCluster_2__dealloc__(struct __pyx_obj_5pycl
  *     del self.thisptr
  * 
  *   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):             # <<<<<<<<<<<<<<
- *     #statistics = np.ascontiguousarray(statistics)
  *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
+ * 
  */
 
 /* Python wrapper */
@@ -1718,14 +1720,16 @@ static PyObject *__pyx_pf_5pycll_14FindMaxCluster_4find_max_cluster_statistics_1
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0];
 
-  /* "pycll.pyx":25
+  /* "pycll.pyx":24
+ * 
  *   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):
- *     #statistics = np.ascontiguousarray(statistics)
  *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)             # <<<<<<<<<<<<<<
+ * 
+ *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_double(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic1D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_double(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic1D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -1735,8 +1739,8 @@ static PyObject *__pyx_pf_5pycll_14FindMaxCluster_4find_max_cluster_statistics_1
  *     del self.thisptr
  * 
  *   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):             # <<<<<<<<<<<<<<
- *     #statistics = np.ascontiguousarray(statistics)
  *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
+ * 
  */
 
   /* function exit code */
@@ -1749,6 +1753,134 @@ static PyObject *__pyx_pf_5pycll_14FindMaxCluster_4find_max_cluster_statistics_1
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
   __Pyx_AddTraceback("pycll.FindMaxCluster.find_max_cluster_statistics_1d", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "pycll.pyx":26
+ *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
+ * 
+ *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5pycll_14FindMaxCluster_7find_max_cluster_statistics_2d(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_5pycll_14FindMaxCluster_7find_max_cluster_statistics_2d(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_statistics = 0;
+  double __pyx_v_criteria;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("find_max_cluster_statistics_2d (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_statistics,&__pyx_n_s_criteria,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_statistics)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_2d", 1, 2, 2, 1); __PYX_ERR(0, 26, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_2d") < 0)) __PYX_ERR(0, 26, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_statistics = ((PyArrayObject *)values[0]);
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 26, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pycll.FindMaxCluster.find_max_cluster_statistics_2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5pycll_14FindMaxCluster_6find_max_cluster_statistics_2d(((struct __pyx_obj_5pycll_FindMaxCluster *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5pycll_14FindMaxCluster_6find_max_cluster_statistics_2d(struct __pyx_obj_5pycll_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_statistics;
+  __Pyx_Buffer __pyx_pybuffer_statistics;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::vector<std::vector<double> >  __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  __Pyx_RefNannySetupContext("find_max_cluster_statistics_2d", 0);
+  __pyx_pybuffer_statistics.pybuffer.buf = NULL;
+  __pyx_pybuffer_statistics.refcount = 0;
+  __pyx_pybuffernd_statistics.data = NULL;
+  __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1];
+
+  /* "pycll.pyx":27
+ * 
+ *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
+ *     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic2D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "pycll.pyx":26
+ *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
+ * 
+ *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("pycll.FindMaxCluster.find_max_cluster_statistics_2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -4391,6 +4523,124 @@ static std::vector<double>  __pyx_convert_vector_from_py_double(PyObject *__pyx_
   return __pyx_r;
 }
 
+/* "vector.from_py":50
+ * 
+ * @cname("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___")
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef vector[X] v
+ *     for item in o:
+ */
+
+static std::vector<std::vector<double> >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(PyObject *__pyx_v_o) {
+  std::vector<std::vector<double> >  __pyx_v_v;
+  PyObject *__pyx_v_item = NULL;
+  std::vector<std::vector<double> >  __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  Py_ssize_t __pyx_t_2;
+  PyObject *(*__pyx_t_3)(PyObject *);
+  PyObject *__pyx_t_4 = NULL;
+  std::vector<double>  __pyx_t_5;
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___", 0);
+
+  /* "vector.from_py":52
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(object o) except *:
+ *     cdef vector[X] v
+ *     for item in o:             # <<<<<<<<<<<<<<
+ *         v.push_back(X_from_py(item))
+ *     return v
+ */
+  if (likely(PyList_CheckExact(__pyx_v_o)) || PyTuple_CheckExact(__pyx_v_o)) {
+    __pyx_t_1 = __pyx_v_o; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
+    __pyx_t_3 = NULL;
+  } else {
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 52, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 52, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_3)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(2, 52, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 52, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      } else {
+        if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(2, 52, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 52, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      }
+    } else {
+      __pyx_t_4 = __pyx_t_3(__pyx_t_1);
+      if (unlikely(!__pyx_t_4)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(2, 52, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "vector.from_py":53
+ *     cdef vector[X] v
+ *     for item in o:
+ *         v.push_back(X_from_py(item))             # <<<<<<<<<<<<<<
+ *     return v
+ * 
+ */
+    __pyx_t_5 = __pyx_convert_vector_from_py_double(__pyx_v_item); if (unlikely(PyErr_Occurred())) __PYX_ERR(2, 53, __pyx_L1_error)
+    __pyx_v_v.push_back(__pyx_t_5);
+
+    /* "vector.from_py":52
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(object o) except *:
+ *     cdef vector[X] v
+ *     for item in o:             # <<<<<<<<<<<<<<
+ *         v.push_back(X_from_py(item))
+ *     return v
+ */
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "vector.from_py":54
+ *     for item in o:
+ *         v.push_back(X_from_py(item))
+ *     return v             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = __pyx_v_v;
+  goto __pyx_L0;
+
+  /* "vector.from_py":50
+ * 
+ * @cname("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___")
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef vector[X] v
+ *     for item in o:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("vector.from_py.__pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_item);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 static PyObject *__pyx_tp_new_5pycll_FindMaxCluster(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
@@ -4425,6 +4675,7 @@ static void __pyx_tp_dealloc_5pycll_FindMaxCluster(PyObject *o) {
 
 static PyMethodDef __pyx_methods_5pycll_FindMaxCluster[] = {
   {"find_max_cluster_statistics_1d", (PyCFunction)__pyx_pw_5pycll_14FindMaxCluster_5find_max_cluster_statistics_1d, METH_VARARGS|METH_KEYWORDS, 0},
+  {"find_max_cluster_statistics_2d", (PyCFunction)__pyx_pw_5pycll_14FindMaxCluster_7find_max_cluster_statistics_2d, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
@@ -4763,8 +5014,8 @@ PyMODINIT_FUNC PyInit_pycll(void)
   #endif
 
   /* "pycll.pyx":5
- * cimport numpy as np
  * from libcpp.vector cimport vector
+ * cimport numpy as np
  * import numpy as np             # <<<<<<<<<<<<<<
  * 
  * cdef extern from "ClusterUtils.h" namespace "ClusterUtils":
@@ -4777,17 +5028,17 @@ PyMODINIT_FUNC PyInit_pycll(void)
   /* "pycll.pyx":1
  * # distutils: language = c++             # <<<<<<<<<<<<<<
  * # distutils: sources = pycll/ClusterUtils.cpp
- * cimport numpy as np
+ * from libcpp.vector cimport vector
  */
   __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vector.from_py":49
+  /* "vector.from_py":50
  * 
- * @cname("__pyx_convert_vector_from_py_double")
- * cdef vector[X] __pyx_convert_vector_from_py_double(object o) except *:             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___")
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(object o) except *:             # <<<<<<<<<<<<<<
  *     cdef vector[X] v
  *     for item in o:
  */

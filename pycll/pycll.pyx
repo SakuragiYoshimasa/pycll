@@ -8,7 +8,7 @@ cdef extern from "ClusterUtils.h" namespace "ClusterUtils":
   cdef cppclass FindMax:
     FindMax() except +
     double findMaxClusterStatistic1D(vector[double] statistics, double criteria)
-    #double findMaxClusterStatistic2D(double[][] statistic, double criteria)
+    double findMaxClusterStatistic2D(vector[vector[double]] statistics, double criteria)
     #double findMaxClusterStatistic3D(double[][][] statistic, double criteria)
 
 cdef class FindMaxCluster:
@@ -21,5 +21,7 @@ cdef class FindMaxCluster:
     del self.thisptr
 
   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):
-    #statistics = np.ascontiguousarray(statistics)
     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
+
+  def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
+    return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)
