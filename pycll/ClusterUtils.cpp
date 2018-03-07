@@ -3,10 +3,13 @@
 using namespace ClusterUtils;
 
 double FindMax::findMaxClusterStatistic1D(std::vector<double> statistics, double criteria){
+  double max = 0.0, sum = 0.0;
+
   for (size_t i = 0; i < statistics.size(); i++){
-    std::cout << statistics[i] << '\n';
+    if(statistics[i] >= criteria) sum += statistics[i];
+    else if(sum > 0) { max = max < sum ? sum : max; sum = 0; }
   }
-  return 0;
+  return max = max < sum ? sum : max;
 }
 
 double FindMax::findMaxClusterStatistic2D(std::vector< std::vector<double> > statistics, double criteria){
