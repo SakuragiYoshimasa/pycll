@@ -1,6 +1,7 @@
-import pycll
+import pycll.cluster as pc
+
 import numpy as np
-cu = pycll.FindMaxCluster()
+cu = pc.FindMaxCluster()
 a = np.array([1,2,3], dtype='double')
 print(cu.find_max_cluster_statistics_1d(a,1))
 

@@ -1,10 +1,10 @@
 # distutils: language = c++
-# distutils: sources = pycll/ClusterUtils.cpp
+# distutils: sources = pycll/cpp/ClusterUtils.cpp
 from libcpp.vector cimport vector
 cimport numpy as np
 import numpy as np
 
-cdef extern from "ClusterUtils.h" namespace "ClusterUtils":
+cdef extern from "cpp/ClusterUtils.h" namespace "ClusterUtils":
   cdef cppclass FindMax:
     FindMax() except +
     double findMaxClusterStatistic1D(vector[double] statistics, double criteria)
@@ -26,5 +26,5 @@ cdef class FindMaxCluster:
   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)
 
-  def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+  def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)
