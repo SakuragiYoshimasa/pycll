@@ -11,6 +11,10 @@ ext_modules = [
     Extension('pycll.stest',
                 sources=['pycll/stest.pyx'],
                 language="c++",
+                include_dirs=[numpy.get_include()]),
+    Extension('pycll.shuffler',
+                sources=['pycll/shuffler.pyx'],
+                language="c++",
                 include_dirs=[numpy.get_include()])
 ]
 
