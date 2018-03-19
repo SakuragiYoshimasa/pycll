@@ -1,6 +1,7 @@
 # distutils: language = c++
 # distutils: sources = pycll/cpp/ClusterUtils.cpp
 from libcpp.vector cimport vector
+from libcpp.pair cimport pair
 cimport numpy as np
 import numpy as np
 
@@ -10,6 +11,9 @@ cdef extern from "cpp/ClusterUtils.h" namespace "ClusterUtils":
     double findMaxClusterStatistic1D(vector[double] statistics, double criteria)
     double findMaxClusterStatistic2D(vector[vector[double]] statistics, double criteria)
     double findMaxClusterStatistic3D(vector[vector[vector[double]]] statistic, double criteria, vector[vector[int]] neighbors)
+  cdef cppclass FindCluster:
+    FindCluster() except +
+    void findClusterStatistic3D(vector[vector[vector[double]]] statistic, double criteria, vector[vector[int]] neighbors, vector[vector[vector[double]]] clusterFlugs, vector[pair[int, double]] clusters)
 
 cdef class FindMaxCluster:
   cdef FindMax *thisptr
@@ -28,3 +32,15 @@ cdef class FindMaxCluster:
 
   def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)
+
+cdef class FindCluster;
+  cdef FindCluster *thisptr
+
+  def __cinit__(self):
+    self.thisptr = new FindCluster()
+
+  def __dealloc__(self):
+    del self.thisptr
+
+  def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors, np.ndarray[int, ndim=3] clusterFlugs, clusters):
+    return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors, clusterFlugs, clusters)

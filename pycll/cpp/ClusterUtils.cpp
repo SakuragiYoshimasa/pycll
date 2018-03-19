@@ -78,3 +78,52 @@ double FindMax::findMaxClusterStatistic3D(std::vector< std::vector< std::vector<
   }
   return max;
 }
+
+void FindCluster::findClusterStatistic3D(
+  std::vector< std::vector< std::vector<double> > > statistics,
+  double criteria,
+  std::vector< std::vector<int> > neighbors,
+  std::vector< std::vector< std::vector<int> > >& clusterFlugs,
+  std::vector< std::pair<int, double>>& clusters;
+){
+  int clusterIndex = 1;
+  for (size_t z = 0; z < statistics.size(); z++){
+    for (size_t y = 0; y < statistics[z].size(); y++) {
+      for (size_t x = 0; x < statistics[z][y].size(); x++) {
+        double sum = dfs_3D(statistics, criteria, neighbors, x, y, z, clusterIndex);
+        clusters.push_back(std::pair<int, double>(clusterIndex, sum));
+      }
+    }
+  }
+  return;
+}
+
+double FindCluster::dfs_3D(
+  std::vector< std::vector< std::vector<double> > >& statistics,
+  double criteria,
+  std::vector< std::vector<int> >& neighbors,
+  std::vector< std::vector< std::vector<int> > >& clusterFlugs,
+  int x, int y, int z,
+  int clusterIndex
+){
+  if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
+
+  double sum = statistics[z][y][x];
+  statistics[z][y][x] = 0;
+  clusterFlugs[z][y][x] = clusterIndex;
+
+  //自分の領域
+  for (int i = 0; i < 8; i ++){
+    sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], z);
+  }
+
+  //他のチャネルまで
+  for(int i = 0; i < neighbors[z].size(); i++){
+    sum += dfs_3D(statistics, criteria, neighbors, x, y, neighbors[z][i]);
+
+    for (int i = 0; i < 8; i ++){
+      sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], neighbors[z][i]);
+    }
+  }
+  return sum;
+}
