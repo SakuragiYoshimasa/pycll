@@ -90,7 +90,7 @@ void FindCluster::findClusterStatistic3D(
   for (size_t z = 0; z < statistics.size(); z++){
     for (size_t y = 0; y < statistics[z].size(); y++) {
       for (size_t x = 0; x < statistics[z][y].size(); x++) {
-        double sum = dfs_3D(statistics, criteria, neighbors, x, y, z, clusterIndex);
+        double sum = dfs_3D(statistics, criteria, neighbors, clusterFlugs, x, y, z, clusterIndex);
         clusters.push_back(std::pair<int, double>(clusterIndex, sum));
       }
     }
@@ -114,15 +114,15 @@ double FindCluster::dfs_3D(
 
   //自分の領域
   for (int i = 0; i < 8; i ++){
-    sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], z);
+    sum += dfs_3D(statistics, criteria, neighbors, clusterFlugs, x + dx[i], y + dy[i], z, clusterIndex);
   }
 
   //他のチャネルまで
   for(int n = 0; n < neighbors[z].size(); n++){
-    sum += dfs_3D(statistics, criteria, neighbors, x, y, neighbors[z][n]);
+    sum += dfs_3D(statistics, criteria, neighbors, clusterFlugs, x, y, neighbors[z][n], clusterIndex);
 
     for (int i = 0; i < 8; i ++){
-      sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], neighbors[z][n]);
+      sum += dfs_3D(statistics, criteria, neighbors, clusterFlugs, x + dx[i], y + dy[i], neighbors[z][n], clusterIndex);
     }
   }
   return sum;
