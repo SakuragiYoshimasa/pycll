@@ -54,11 +54,11 @@ double FindMax::dfs_3D(std::vector< std::vector< std::vector<double> > >& statis
   }
 
   //他のチャネルまで
-  for(int i = 0; i < neighbors[z].size(); i++){
-    sum += dfs_3D(statistics, criteria, neighbors, x, y, neighbors[z][i]);
+  for(int n = 0; n < neighbors[z].size(); n++){
+    sum += dfs_3D(statistics, criteria, neighbors, x, y, neighbors[z][n]);
 
     for (int i = 0; i < 8; i ++){
-      sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], neighbors[z][i]);
+      sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], neighbors[z][n]);
     }
   }
   return sum;
@@ -118,11 +118,11 @@ double FindCluster::dfs_3D(
   }
 
   //他のチャネルまで
-  for(int i = 0; i < neighbors[z].size(); i++){
-    sum += dfs_3D(statistics, criteria, neighbors, x, y, neighbors[z][i]);
+  for(int n = 0; n < neighbors[z].size(); n++){
+    sum += dfs_3D(statistics, criteria, neighbors, x, y, neighbors[z][n]);
 
     for (int i = 0; i < 8; i ++){
-      sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], neighbors[z][i]);
+      sum += dfs_3D(statistics, criteria, neighbors, x + dx[i], y + dy[i], neighbors[z][n]);
     }
   }
   return sum;
