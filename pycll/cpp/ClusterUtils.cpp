@@ -123,14 +123,16 @@ void FindCluster::findClusterStatistic2D(Statistics2D statistics, double criteri
   return;
 }
 
-void FindCluster::findClusterStatistic3D(Statistics3D statistics, Neighbors neighbors, double criteria) {
+void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors) {
   clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
   clusters = *new Clusters();
   int clusterIndex = 1;
   for (size_t z = 0; z < statistics.size(); z++){
     for (size_t y = 0; y < statistics[z].size(); y++) {
       for (size_t x = 0; x < statistics[z][y].size(); x++) {
+
         double sum = dfs_3D(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
+
         if (sum > 0){
           clusters.push_back(std::pair<int, double>(clusterIndex, sum));
           clusterIndex++;

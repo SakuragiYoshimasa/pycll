@@ -33,7 +33,7 @@ namespace ClusterUtils {
     ClusterFlags3D clusterFlags3D;
     void findClusterStatistic1D(Statistics1D statistics, double criteria);
     void findClusterStatistic2D(Statistics2D statistics, double criteria);
-    void findClusterStatistic3D(Statistics3D statistics, Neighbors neighbors, double criteria);
+    void findClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors);
   private:
     double dfs_2D(Statistics2D& statistics, double criteria, ClusterFlags2D& clusterFlugs, int x, int y, int clusterIndex);
     double dfs_3D(Statistics3D& statistics, double criteria, Neighbors& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex);

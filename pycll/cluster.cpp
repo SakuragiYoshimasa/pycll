@@ -1720,7 +1720,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_8get_cluster_fl
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_10get_cluster_flags_3d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_12find_cluster_statistics_1d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_statistics_2d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
-static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, PyObject *__pyx_v_neighbors, double __pyx_v_criteria); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_18__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
@@ -2954,7 +2954,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_
  *   def find_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
  *     return self.thisptr.findClusterStatistic2D(statistics, criteria)             # <<<<<<<<<<<<<<
  * 
- *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, neighbors, double criteria):
+ *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 66, __pyx_L1_error)
@@ -2995,21 +2995,21 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_
 /* "pycll/cluster.pyx":68
  *     return self.thisptr.findClusterStatistic2D(statistics, criteria)
  * 
- *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, neighbors, double criteria):             # <<<<<<<<<<<<<<
- *     return self.thisptr.findClusterStatistic3D(statistics, neighbors, criteria)
+ *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_statistics_3d(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_statistics_3d(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_statistics = 0;
-  PyObject *__pyx_v_neighbors = 0;
   double __pyx_v_criteria;
+  PyObject *__pyx_v_neighbors = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("find_cluster_statistics_3d (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_statistics,&__pyx_n_s_neighbors,&__pyx_n_s_criteria,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_statistics,&__pyx_n_s_criteria,&__pyx_n_s_neighbors,0};
     PyObject* values[3] = {0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -3031,13 +3031,13 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_neighbors)) != 0)) kw_args--;
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
           __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, 1); __PYX_ERR(1, 68, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_neighbors)) != 0)) kw_args--;
         else {
           __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, 2); __PYX_ERR(1, 68, __pyx_L3_error)
         }
@@ -3053,8 +3053,8 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_neighbors = values[1];
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 68, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 68, __pyx_L3_error)
+    __pyx_v_neighbors = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
@@ -3065,7 +3065,7 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 68, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), __pyx_v_statistics, __pyx_v_neighbors, __pyx_v_criteria);
+  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria, __pyx_v_neighbors);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3076,7 +3076,7 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, PyObject *__pyx_v_neighbors, double __pyx_v_criteria) {
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_statistics;
   __Pyx_Buffer __pyx_pybuffer_statistics;
   PyObject *__pyx_r = NULL;
@@ -3097,13 +3097,13 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_
 
   /* "pycll/cluster.pyx":69
  * 
- *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, neighbors, double criteria):
- *     return self.thisptr.findClusterStatistic3D(statistics, neighbors, criteria)             # <<<<<<<<<<<<<<
+ *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+ *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 69, __pyx_L1_error)
   __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 69, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic3D(__pyx_t_1, __pyx_t_2, __pyx_v_criteria)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 69, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic3D(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -3112,8 +3112,8 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_
   /* "pycll/cluster.pyx":68
  *     return self.thisptr.findClusterStatistic2D(statistics, criteria)
  * 
- *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, neighbors, double criteria):             # <<<<<<<<<<<<<<
- *     return self.thisptr.findClusterStatistic3D(statistics, neighbors, criteria)
+ *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
  */
 
   /* function exit code */

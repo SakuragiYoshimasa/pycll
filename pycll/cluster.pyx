@@ -16,7 +16,7 @@ cdef extern from "cpp/ClusterUtils.h" namespace "ClusterUtils":
     FindCluster() except +
     void findClusterStatistic1D(vector[double] statistic, double criteria)
     void findClusterStatistic2D(vector[vector[double]] statistic, double criteria)
-    void findClusterStatistic3D(vector[vector[vector[double]]] statistic, vector[vector[int]] neighbors, double criteria)
+    void findClusterStatistic3D(vector[vector[vector[double]]] statistic, double criteria, vector[vector[int]] neighbors)
     vector[pair[int, double]] clusters
     vector[int] clusterFlags1D
     vector[vector[int]] clusterFlags2D
@@ -65,5 +65,5 @@ cdef class FindClusterStatistic:
   def find_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
     return self.thisptr.findClusterStatistic2D(statistics, criteria)
 
-  def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, neighbors, double criteria):
-    return self.thisptr.findClusterStatistic3D(statistics, neighbors, criteria)
+  def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+    return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
