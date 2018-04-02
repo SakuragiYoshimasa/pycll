@@ -7,8 +7,8 @@ cimport numpy as np
 # return
 #   p-value
 def non_parametric_stest(np.ndarray[double, ndim=1] samples, double target):
-    cdef int sample_size
-    cdef int position
+    cdef double sample_size
+    cdef double position
     cdef double p
     sample_size = len(samples)
     position = samples.searchsorted(target)

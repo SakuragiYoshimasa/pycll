@@ -1207,13 +1207,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject
 /* PyObjectCallOneArg.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
 
-/* None.proto */
-static CYTHON_INLINE int __Pyx_div_int(int, int);
-
-/* UnaryNegOverflows.proto */
-#define UNARY_NEG_WOULD_OVERFLOW(x)\
-        (((x) < 0) & ((unsigned long)(x) == 0-(unsigned long)(x)))
-
 /* PyThreadStateGet.proto */
 #if CYTHON_FAST_THREAD_STATE
 #define __Pyx_PyThreadState_declare  PyThreadState *__pyx_tstate;
@@ -1680,8 +1673,8 @@ static PyObject *__pyx_codeobj__11;
  * # return
  * #   p-value
  * def non_parametric_stest(np.ndarray[double, ndim=1] samples, double target):             # <<<<<<<<<<<<<<
- *     cdef int sample_size
- *     cdef int position
+ *     cdef double sample_size
+ *     cdef double position
  */
 
 /* Python wrapper */
@@ -1752,8 +1745,8 @@ static PyObject *__pyx_pw_5pycll_5stest_1non_parametric_stest(PyObject *__pyx_se
 }
 
 static PyObject *__pyx_pf_5pycll_5stest_non_parametric_stest(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_samples, double __pyx_v_target) {
-  int __pyx_v_sample_size;
-  int __pyx_v_position;
+  double __pyx_v_sample_size;
+  double __pyx_v_position;
   double __pyx_v_p;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_samples;
   __Pyx_Buffer __pyx_pybuffer_samples;
@@ -1765,7 +1758,7 @@ static PyObject *__pyx_pf_5pycll_5stest_non_parametric_stest(CYTHON_UNUSED PyObj
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
-  int __pyx_t_7;
+  double __pyx_t_7;
   __Pyx_RefNannySetupContext("non_parametric_stest", 0);
   __pyx_pybuffer_samples.pybuffer.buf = NULL;
   __pyx_pybuffer_samples.refcount = 0;
@@ -1778,7 +1771,7 @@ static PyObject *__pyx_pf_5pycll_5stest_non_parametric_stest(CYTHON_UNUSED PyObj
   __pyx_pybuffernd_samples.diminfo[0].strides = __pyx_pybuffernd_samples.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_samples.diminfo[0].shape = __pyx_pybuffernd_samples.rcbuffer->pybuffer.shape[0];
 
   /* "pycll/stest.pyx":13
- *     cdef int position
+ *     cdef double position
  *     cdef double p
  *     sample_size = len(samples)             # <<<<<<<<<<<<<<
  *     position = samples.searchsorted(target)
@@ -1844,7 +1837,7 @@ static PyObject *__pyx_pf_5pycll_5stest_non_parametric_stest(CYTHON_UNUSED PyObj
     }
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_7 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_7 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_position = __pyx_t_7;
 
@@ -1856,14 +1849,10 @@ static PyObject *__pyx_pf_5pycll_5stest_non_parametric_stest(CYTHON_UNUSED PyObj
  * 
  */
   if (unlikely(__pyx_v_sample_size == 0)) {
-    PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
+    PyErr_SetString(PyExc_ZeroDivisionError, "float division");
     __PYX_ERR(0, 15, __pyx_L1_error)
   }
-  else if (sizeof(int) == sizeof(long) && (!(((int)-1) > 0)) && unlikely(__pyx_v_sample_size == (int)-1)  && unlikely(UNARY_NEG_WOULD_OVERFLOW(__pyx_v_position))) {
-    PyErr_SetString(PyExc_OverflowError, "value too large to perform division");
-    __PYX_ERR(0, 15, __pyx_L1_error)
-  }
-  __pyx_v_p = (1.0 - __Pyx_div_int(__pyx_v_position, __pyx_v_sample_size));
+  __pyx_v_p = (1.0 - (__pyx_v_position / __pyx_v_sample_size));
 
   /* "pycll/stest.pyx":16
  *     position = samples.searchsorted(target)
@@ -1883,8 +1872,8 @@ static PyObject *__pyx_pf_5pycll_5stest_non_parametric_stest(CYTHON_UNUSED PyObj
  * # return
  * #   p-value
  * def non_parametric_stest(np.ndarray[double, ndim=1] samples, double target):             # <<<<<<<<<<<<<<
- *     cdef int sample_size
- *     cdef int position
+ *     cdef double sample_size
+ *     cdef double position
  */
 
   /* function exit code */
@@ -4680,8 +4669,8 @@ static int __Pyx_InitCachedConstants(void) {
  * # return
  * #   p-value
  * def non_parametric_stest(np.ndarray[double, ndim=1] samples, double target):             # <<<<<<<<<<<<<<
- *     cdef int sample_size
- *     cdef int position
+ *     cdef double sample_size
+ *     cdef double position
  */
   __pyx_tuple__10 = PyTuple_Pack(5, __pyx_n_s_samples, __pyx_n_s_target, __pyx_n_s_sample_size, __pyx_n_s_position, __pyx_n_s_p); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
@@ -4890,8 +4879,8 @@ static int __pyx_pymod_exec_stest(PyObject *__pyx_pyinit_module)
  * # return
  * #   p-value
  * def non_parametric_stest(np.ndarray[double, ndim=1] samples, double target):             # <<<<<<<<<<<<<<
- *     cdef int sample_size
- *     cdef int position
+ *     cdef double sample_size
+ *     cdef double position
  */
   __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5pycll_5stest_1non_parametric_stest, NULL, __pyx_n_s_pycll_stest); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -6091,14 +6080,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObjec
 }
 #endif
 
-/* None */
-  static CYTHON_INLINE int __Pyx_div_int(int a, int b) {
-    int q = a / b;
-    int r = a - q*b;
-    q -= ((r != 0) & ((r ^ b) < 0));
-    return q;
-}
-
 /* PyErrFetchRestore */
   #if CYTHON_FAST_THREAD_STATE
 static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
@@ -7020,28 +7001,6 @@ bad:
 }
 #endif
 
-/* CIntFromPyVerify */
-      #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
-#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
-#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
-    {\
-        func_type value = func_value;\
-        if (sizeof(target_type) < sizeof(func_type)) {\
-            if (unlikely(value != (func_type) (target_type) value)) {\
-                func_type zero = 0;\
-                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
-                    return (target_type) -1;\
-                if (is_unsigned && unlikely(value < zero))\
-                    goto raise_neg_overflow;\
-                else\
-                    goto raise_overflow;\
-            }\
-        }\
-        return (target_type) value;\
-    }
-
 /* Declarations */
       #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -7382,6 +7341,28 @@ bad:
                                      little, !is_unsigned);
     }
 }
+
+/* CIntFromPyVerify */
+      #define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
+#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
+#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
+    {\
+        func_type value = func_value;\
+        if (sizeof(target_type) < sizeof(func_type)) {\
+            if (unlikely(value != (func_type) (target_type) value)) {\
+                func_type zero = 0;\
+                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
+                    return (target_type) -1;\
+                if (is_unsigned && unlikely(value < zero))\
+                    goto raise_neg_overflow;\
+                else\
+                    goto raise_overflow;\
+            }\
+        }\
+        return (target_type) value;\
+    }
 
 /* CIntToPy */
       static CYTHON_INLINE PyObject* __Pyx_PyInt_From_enum__NPY_TYPES(enum NPY_TYPES value) {
