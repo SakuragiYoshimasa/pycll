@@ -97,7 +97,7 @@ double FindMax::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, doubl
 
   //他のチャネルまで
   for(int n = 0; n < neighbors[y][z].size(); n++){
-    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, x, y, neighbors[z][y][n]);
+    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, x, y, neighbors[y][z][n]);
   }
   return sum;
 }
@@ -247,9 +247,10 @@ double FindCluster::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, d
   //他のチャネルまで
   //z: pair index, y: freq index, x:time index
   //探索の際のneighborsのindexにfreqを追加, freqに相当するのはy
-  for(int n = 0; n < neighbors[z][y].size(); n++){
+  //Neighborsの定義はindexがfreq, posなので注意
+  for(int n = 0; n < neighbors[y][z].size(); n++){
 
-    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags, x, y, neighbors[z][y][n], clusterIndex);
+    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags, x, y, neighbors[y][z][n], clusterIndex);
 
     //周波数ごとに定義されているので、この場合周波数的に隣接している箇所は探索しないようにする
     //今まで26近傍だったのを 8 + 2 近傍的に

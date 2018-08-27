@@ -9,7 +9,7 @@ typedef std::vector<double> Statistics1D;
 typedef std::vector< std::vector<double> > Statistics2D;
 typedef std::vector< std::vector< std::vector<double> > > Statistics3D;
 typedef std::vector< std::vector<int> > Neighbors;
-typedef std::vector< std::vector< std::vector<int> > > NeighborsAboutAllFreq; //pos, freq, neighbors
+typedef std::vector< std::vector< std::vector<int> > > NeighborsAboutAllFreq; //freq, pos, neighbors
 typedef std::vector<int> ClusterFlags1D;
 typedef std::vector< std::vector<int> > ClusterFlags2D;
 typedef std::vector< std::vector< std::vector<int> > > ClusterFlags3D;
