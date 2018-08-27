@@ -11,12 +11,14 @@ cdef extern from "cpp/ClusterUtils.h" namespace "ClusterUtils":
     double findMaxClusterStatistic1D(vector[double] statistics, double criteria)
     double findMaxClusterStatistic2D(vector[vector[double]] statistics, double criteria)
     double findMaxClusterStatistic3D(vector[vector[vector[double]]] statistic, double criteria, vector[vector[int]] neighbors)
+    double findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(vector[vector[vector[double]]] statistic, double criteria, vector[vector[vector[int]]] neighbors)
 
   cdef cppclass FindCluster:
     FindCluster() except +
     void findClusterStatistic1D(vector[double] statistic, double criteria)
     void findClusterStatistic2D(vector[vector[double]] statistic, double criteria)
     void findClusterStatistic3D(vector[vector[vector[double]]] statistic, double criteria, vector[vector[int]] neighbors)
+    void findClusterStatistic3DWithNeighborsAboutAllFreqs(vector[vector[vector[double]]] statistic, double criteria, vector[vector[vector[int]]] neighbors)
     vector[pair[int, double]] clusters
     vector[int] clusterFlags1D
     vector[vector[int]] clusterFlags2D
@@ -39,6 +41,9 @@ cdef class FindMaxCluster:
 
   def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)
+
+  def find_max_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+    return self.thisptr.findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)
 
 cdef class FindClusterStatistic:
   cdef FindCluster *thisptr
@@ -67,3 +72,6 @@ cdef class FindClusterStatistic:
 
   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
+
+  def find_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+    return self.thisptr.findClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)

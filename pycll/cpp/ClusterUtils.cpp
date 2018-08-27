@@ -102,7 +102,7 @@ double FindMax::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, doubl
   return sum;
 }
 
-double FindMax::findMaxClusterStatistic3DWithNeighborsAboutAllFreq(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors){
+double FindMax::findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors){
   double max = 0.0, sum = 0.0;
 
   for (size_t z = 0; z < statistics.size(); z++){
@@ -212,7 +212,7 @@ double FindCluster::dfs_3D(Statistics3D& statistics, double criteria, Neighbors&
   return sum;
 }
 
-void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreq(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors) {
+void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors) {
   clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
   clusters = *new Clusters();
   int clusterIndex = 1;

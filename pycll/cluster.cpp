@@ -1065,7 +1065,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "pycll/cluster.pyx":25
+/* "pycll/cluster.pyx":27
  *     vector[vector[vector[int]]] clusterFlags3D
  * 
  * cdef class FindMaxCluster:             # <<<<<<<<<<<<<<
@@ -1078,8 +1078,8 @@ struct __pyx_obj_5pycll_7cluster_FindMaxCluster {
 };
 
 
-/* "pycll/cluster.pyx":43
- *     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)
+/* "pycll/cluster.pyx":48
+ *     return self.thisptr.findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)
  * 
  * cdef class FindClusterStatistic:             # <<<<<<<<<<<<<<
  *   cdef FindCluster *thisptr
@@ -1629,6 +1629,7 @@ static std::vector<std::vector<double> >  __pyx_convert_vector_from_py_std_3a__3
 static std::vector<std::vector<std::vector<double> > >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(PyObject *); /*proto*/
 static std::vector<int>  __pyx_convert_vector_from_py_int(PyObject *); /*proto*/
 static std::vector<std::vector<int> >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(PyObject *); /*proto*/
+static std::vector<std::vector<std::vector<int> > >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(PyObject *); /*proto*/
 static PyObject *__pyx_convert_pair_to_py_int____double(std::pair<int,double>  const &); /*proto*/
 static PyObject *__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_double_3e___(const std::vector<std::pair<int,double> >  &); /*proto*/
 static PyObject *__pyx_convert_vector_to_py_int(const std::vector<int>  &); /*proto*/
@@ -1710,8 +1711,9 @@ static void __pyx_pf_5pycll_7cluster_14FindMaxCluster_2__dealloc__(struct __pyx_
 static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_4find_max_cluster_statistics_1d(struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_6find_max_cluster_statistics_2d(struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_8find_max_cluster_statistics_3d(struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors); /* proto */
-static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_10__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_12__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_10find_max_cluster_statistics_3d_with_neighbors_allfreq(struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_5pycll_7cluster_20FindClusterStatistic___cinit__(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
 static void __pyx_pf_5pycll_7cluster_20FindClusterStatistic_2__dealloc__(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_4get_clusters(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
@@ -1721,8 +1723,9 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_10get_cluster_f
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_12find_cluster_statistics_1d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_statistics_2d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria); /* proto */
 static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors); /* proto */
-static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_18__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_18find_cluster_statistics_3d_with_neighbors_allfreq(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tp_new_5pycll_7cluster_FindMaxCluster(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -1741,7 +1744,7 @@ static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_tuple__12;
 static PyObject *__pyx_tuple__13;
 
-/* "pycll/cluster.pyx":28
+/* "pycll/cluster.pyx":30
  *   cdef FindMax *thisptr
  * 
  *   def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1771,7 +1774,7 @@ static int __pyx_pf_5pycll_7cluster_14FindMaxCluster___cinit__(struct __pyx_obj_
   ClusterUtils::FindMax *__pyx_t_1;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pycll/cluster.pyx":29
+  /* "pycll/cluster.pyx":31
  * 
  *   def __cinit__(self):
  *     self.thisptr = new FindMax()             # <<<<<<<<<<<<<<
@@ -1782,11 +1785,11 @@ static int __pyx_pf_5pycll_7cluster_14FindMaxCluster___cinit__(struct __pyx_obj_
     __pyx_t_1 = new ClusterUtils::FindMax();
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(1, 29, __pyx_L1_error)
+    __PYX_ERR(1, 31, __pyx_L1_error)
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "pycll/cluster.pyx":28
+  /* "pycll/cluster.pyx":30
  *   cdef FindMax *thisptr
  * 
  *   def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1805,7 +1808,7 @@ static int __pyx_pf_5pycll_7cluster_14FindMaxCluster___cinit__(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":31
+/* "pycll/cluster.pyx":33
  *     self.thisptr = new FindMax()
  * 
  *   def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1828,7 +1831,7 @@ static void __pyx_pf_5pycll_7cluster_14FindMaxCluster_2__dealloc__(struct __pyx_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pycll/cluster.pyx":32
+  /* "pycll/cluster.pyx":34
  * 
  *   def __dealloc__(self):
  *     del self.thisptr             # <<<<<<<<<<<<<<
@@ -1837,7 +1840,7 @@ static void __pyx_pf_5pycll_7cluster_14FindMaxCluster_2__dealloc__(struct __pyx_
  */
   delete __pyx_v_self->thisptr;
 
-  /* "pycll/cluster.pyx":31
+  /* "pycll/cluster.pyx":33
  *     self.thisptr = new FindMax()
  * 
  *   def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1849,7 +1852,7 @@ static void __pyx_pf_5pycll_7cluster_14FindMaxCluster_2__dealloc__(struct __pyx_
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pycll/cluster.pyx":34
+/* "pycll/cluster.pyx":36
  *     del self.thisptr
  * 
  *   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -1888,11 +1891,11 @@ static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_5find_max_cluster_sta
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_1d", 1, 2, 2, 1); __PYX_ERR(1, 34, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_1d", 1, 2, 2, 1); __PYX_ERR(1, 36, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_1d") < 0)) __PYX_ERR(1, 34, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_1d") < 0)) __PYX_ERR(1, 36, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1901,17 +1904,17 @@ static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_5find_max_cluster_sta
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 34, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 36, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_1d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 34, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_1d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 36, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pycll.cluster.FindMaxCluster.find_max_cluster_statistics_1d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 34, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 36, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_4find_max_cluster_statistics_1d(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria);
 
   /* function exit code */
@@ -1937,11 +1940,11 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_4find_max_cluster_sta
   __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 34, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 36, __pyx_L1_error)
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0];
 
-  /* "pycll/cluster.pyx":35
+  /* "pycll/cluster.pyx":37
  * 
  *   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):
  *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)             # <<<<<<<<<<<<<<
@@ -1949,14 +1952,14 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_4find_max_cluster_sta
  *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_double(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 35, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic1D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 35, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_double(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 37, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic1D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":34
+  /* "pycll/cluster.pyx":36
  *     del self.thisptr
  * 
  *   def find_max_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -1984,7 +1987,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_4find_max_cluster_sta
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":37
+/* "pycll/cluster.pyx":39
  *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
  * 
  *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -2023,11 +2026,11 @@ static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_7find_max_cluster_sta
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_2d", 1, 2, 2, 1); __PYX_ERR(1, 37, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_2d", 1, 2, 2, 1); __PYX_ERR(1, 39, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_2d") < 0)) __PYX_ERR(1, 37, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_2d") < 0)) __PYX_ERR(1, 39, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2036,17 +2039,17 @@ static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_7find_max_cluster_sta
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 37, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 39, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 37, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 39, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pycll.cluster.FindMaxCluster.find_max_cluster_statistics_2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 37, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 39, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_6find_max_cluster_statistics_2d(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria);
 
   /* function exit code */
@@ -2072,11 +2075,11 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_6find_max_cluster_sta
   __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(1, 37, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(1, 39, __pyx_L1_error)
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1];
 
-  /* "pycll/cluster.pyx":38
+  /* "pycll/cluster.pyx":40
  * 
  *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
  *     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)             # <<<<<<<<<<<<<<
@@ -2084,14 +2087,14 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_6find_max_cluster_sta
  *   def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 38, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic2D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 38, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 40, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic2D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":37
+  /* "pycll/cluster.pyx":39
  *     return self.thisptr.findMaxClusterStatistic1D(statistics, criteria)
  * 
  *   def find_max_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -2119,7 +2122,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_6find_max_cluster_sta
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":40
+/* "pycll/cluster.pyx":42
  *     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)
  * 
  *   def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
@@ -2161,17 +2164,17 @@ static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_9find_max_cluster_sta
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d", 1, 3, 3, 1); __PYX_ERR(1, 40, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d", 1, 3, 3, 1); __PYX_ERR(1, 42, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_neighbors)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d", 1, 3, 3, 2); __PYX_ERR(1, 40, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d", 1, 3, 3, 2); __PYX_ERR(1, 42, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_3d") < 0)) __PYX_ERR(1, 40, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_3d") < 0)) __PYX_ERR(1, 42, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -2181,18 +2184,18 @@ static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_9find_max_cluster_sta
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 40, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 42, __pyx_L3_error)
     __pyx_v_neighbors = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 40, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 42, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pycll.cluster.FindMaxCluster.find_max_cluster_statistics_3d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 40, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 42, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_8find_max_cluster_statistics_3d(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria, __pyx_v_neighbors);
 
   /* function exit code */
@@ -2219,27 +2222,27 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_8find_max_cluster_sta
   __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(1, 40, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(1, 42, __pyx_L1_error)
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_statistics.diminfo[2].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_statistics.diminfo[2].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[2];
 
-  /* "pycll/cluster.pyx":41
+  /* "pycll/cluster.pyx":43
  * 
  *   def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  *     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)             # <<<<<<<<<<<<<<
  * 
- * cdef class FindClusterStatistic:
+ *   def find_max_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 41, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 41, __pyx_L1_error)
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic3D(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 41, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 43, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 43, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic3D(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":40
+  /* "pycll/cluster.pyx":42
  *     return self.thisptr.findMaxClusterStatistic2D(statistics, criteria)
  * 
  *   def find_max_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
@@ -2267,6 +2270,154 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_8find_max_cluster_sta
   return __pyx_r;
 }
 
+/* "pycll/cluster.pyx":45
+ *     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)
+ * 
+ *   def find_max_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_11find_max_cluster_statistics_3d_with_neighbors_allfreq(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_11find_max_cluster_statistics_3d_with_neighbors_allfreq(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_statistics = 0;
+  double __pyx_v_criteria;
+  PyObject *__pyx_v_neighbors = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("find_max_cluster_statistics_3d_with_neighbors_allfreq (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_statistics,&__pyx_n_s_criteria,&__pyx_n_s_neighbors,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_statistics)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d_with_neighbors_allfreq", 1, 3, 3, 1); __PYX_ERR(1, 45, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_neighbors)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d_with_neighbors_allfreq", 1, 3, 3, 2); __PYX_ERR(1, 45, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_max_cluster_statistics_3d_with_neighbors_allfreq") < 0)) __PYX_ERR(1, 45, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_statistics = ((PyArrayObject *)values[0]);
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 45, __pyx_L3_error)
+    __pyx_v_neighbors = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("find_max_cluster_statistics_3d_with_neighbors_allfreq", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 45, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pycll.cluster.FindMaxCluster.find_max_cluster_statistics_3d_with_neighbors_allfreq", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 45, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_10find_max_cluster_statistics_3d_with_neighbors_allfreq(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria, __pyx_v_neighbors);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_10find_max_cluster_statistics_3d_with_neighbors_allfreq(struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_statistics;
+  __Pyx_Buffer __pyx_pybuffer_statistics;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::vector<std::vector<std::vector<double> > >  __pyx_t_1;
+  std::vector<std::vector<std::vector<int> > >  __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("find_max_cluster_statistics_3d_with_neighbors_allfreq", 0);
+  __pyx_pybuffer_statistics.pybuffer.buf = NULL;
+  __pyx_pybuffer_statistics.refcount = 0;
+  __pyx_pybuffernd_statistics.data = NULL;
+  __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(1, 45, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_statistics.diminfo[2].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_statistics.diminfo[2].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[2];
+
+  /* "pycll/cluster.pyx":46
+ * 
+ *   def find_max_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+ *     return self.thisptr.findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)             # <<<<<<<<<<<<<<
+ * 
+ * cdef class FindClusterStatistic:
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 46, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 46, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_self->thisptr->findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 46, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* "pycll/cluster.pyx":45
+ *     return self.thisptr.findMaxClusterStatistic3D(statistics, criteria, neighbors)
+ * 
+ *   def find_max_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("pycll.cluster.FindMaxCluster.find_max_cluster_statistics_3d_with_neighbors_allfreq", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
@@ -2274,19 +2425,19 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_8find_max_cluster_sta
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_10__reduce_cython__(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_12__reduce_cython__(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_10__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self) {
+static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2328,19 +2479,19 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_10__reduce_cython__(C
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pycll_7cluster_14FindMaxCluster_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_12__setstate_cython__(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pycll_7cluster_14FindMaxCluster_14__setstate_cython__(((struct __pyx_obj_5pycll_7cluster_FindMaxCluster *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_12__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindMaxCluster *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2374,7 +2525,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_14FindMaxCluster_12__setstate_cython__
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":46
+/* "pycll/cluster.pyx":51
  *   cdef FindCluster *thisptr
  * 
  *   def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -2404,7 +2555,7 @@ static int __pyx_pf_5pycll_7cluster_20FindClusterStatistic___cinit__(struct __py
   ClusterUtils::FindCluster *__pyx_t_1;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pycll/cluster.pyx":47
+  /* "pycll/cluster.pyx":52
  * 
  *   def __cinit__(self):
  *     self.thisptr = new FindCluster()             # <<<<<<<<<<<<<<
@@ -2415,11 +2566,11 @@ static int __pyx_pf_5pycll_7cluster_20FindClusterStatistic___cinit__(struct __py
     __pyx_t_1 = new ClusterUtils::FindCluster();
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(1, 47, __pyx_L1_error)
+    __PYX_ERR(1, 52, __pyx_L1_error)
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "pycll/cluster.pyx":46
+  /* "pycll/cluster.pyx":51
  *   cdef FindCluster *thisptr
  * 
  *   def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -2438,7 +2589,7 @@ static int __pyx_pf_5pycll_7cluster_20FindClusterStatistic___cinit__(struct __py
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":49
+/* "pycll/cluster.pyx":54
  *     self.thisptr = new FindCluster()
  * 
  *   def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2461,7 +2612,7 @@ static void __pyx_pf_5pycll_7cluster_20FindClusterStatistic_2__dealloc__(struct 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pycll/cluster.pyx":50
+  /* "pycll/cluster.pyx":55
  * 
  *   def __dealloc__(self):
  *     del self.thisptr             # <<<<<<<<<<<<<<
@@ -2470,7 +2621,7 @@ static void __pyx_pf_5pycll_7cluster_20FindClusterStatistic_2__dealloc__(struct 
  */
   delete __pyx_v_self->thisptr;
 
-  /* "pycll/cluster.pyx":49
+  /* "pycll/cluster.pyx":54
  *     self.thisptr = new FindCluster()
  * 
  *   def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2482,7 +2633,7 @@ static void __pyx_pf_5pycll_7cluster_20FindClusterStatistic_2__dealloc__(struct 
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pycll/cluster.pyx":51
+/* "pycll/cluster.pyx":56
  *   def __dealloc__(self):
  *     del self.thisptr
  *   def get_clusters(self):             # <<<<<<<<<<<<<<
@@ -2509,7 +2660,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_4get_clusters(s
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("get_clusters", 0);
 
-  /* "pycll/cluster.pyx":52
+  /* "pycll/cluster.pyx":57
  *     del self.thisptr
  *   def get_clusters(self):
  *     return self.thisptr.clusters             # <<<<<<<<<<<<<<
@@ -2517,13 +2668,13 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_4get_clusters(s
  *     return self.thisptr.clusterFlags1D
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_double_3e___(__pyx_v_self->thisptr->clusters); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 52, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_double_3e___(__pyx_v_self->thisptr->clusters); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":51
+  /* "pycll/cluster.pyx":56
  *   def __dealloc__(self):
  *     del self.thisptr
  *   def get_clusters(self):             # <<<<<<<<<<<<<<
@@ -2542,7 +2693,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_4get_clusters(s
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":53
+/* "pycll/cluster.pyx":58
  *   def get_clusters(self):
  *     return self.thisptr.clusters
  *   def get_cluster_flags_1d(self):             # <<<<<<<<<<<<<<
@@ -2569,7 +2720,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_6get_cluster_fl
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("get_cluster_flags_1d", 0);
 
-  /* "pycll/cluster.pyx":54
+  /* "pycll/cluster.pyx":59
  *     return self.thisptr.clusters
  *   def get_cluster_flags_1d(self):
  *     return self.thisptr.clusterFlags1D             # <<<<<<<<<<<<<<
@@ -2577,13 +2728,13 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_6get_cluster_fl
  *   def get_cluster_flags_2d(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_to_py_int(__pyx_v_self->thisptr->clusterFlags1D); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 54, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_to_py_int(__pyx_v_self->thisptr->clusterFlags1D); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":53
+  /* "pycll/cluster.pyx":58
  *   def get_clusters(self):
  *     return self.thisptr.clusters
  *   def get_cluster_flags_1d(self):             # <<<<<<<<<<<<<<
@@ -2602,7 +2753,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_6get_cluster_fl
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":56
+/* "pycll/cluster.pyx":61
  *     return self.thisptr.clusterFlags1D
  * 
  *   def get_cluster_flags_2d(self):             # <<<<<<<<<<<<<<
@@ -2629,7 +2780,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_8get_cluster_fl
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("get_cluster_flags_2d", 0);
 
-  /* "pycll/cluster.pyx":57
+  /* "pycll/cluster.pyx":62
  * 
  *   def get_cluster_flags_2d(self):
  *     return self.thisptr.clusterFlags2D             # <<<<<<<<<<<<<<
@@ -2637,13 +2788,13 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_8get_cluster_fl
  *   def get_cluster_flags_3d(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_self->thisptr->clusterFlags2D); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 57, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_self->thisptr->clusterFlags2D); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":56
+  /* "pycll/cluster.pyx":61
  *     return self.thisptr.clusterFlags1D
  * 
  *   def get_cluster_flags_2d(self):             # <<<<<<<<<<<<<<
@@ -2662,7 +2813,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_8get_cluster_fl
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":59
+/* "pycll/cluster.pyx":64
  *     return self.thisptr.clusterFlags2D
  * 
  *   def get_cluster_flags_3d(self):             # <<<<<<<<<<<<<<
@@ -2689,7 +2840,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_10get_cluster_f
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("get_cluster_flags_3d", 0);
 
-  /* "pycll/cluster.pyx":60
+  /* "pycll/cluster.pyx":65
  * 
  *   def get_cluster_flags_3d(self):
  *     return self.thisptr.clusterFlags3D             # <<<<<<<<<<<<<<
@@ -2697,13 +2848,13 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_10get_cluster_f
  *   def find_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(__pyx_v_self->thisptr->clusterFlags3D); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 60, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(__pyx_v_self->thisptr->clusterFlags3D); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":59
+  /* "pycll/cluster.pyx":64
  *     return self.thisptr.clusterFlags2D
  * 
  *   def get_cluster_flags_3d(self):             # <<<<<<<<<<<<<<
@@ -2722,7 +2873,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_10get_cluster_f
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":62
+/* "pycll/cluster.pyx":67
  *     return self.thisptr.clusterFlags3D
  * 
  *   def find_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -2761,11 +2912,11 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_13find_cluster_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_1d", 1, 2, 2, 1); __PYX_ERR(1, 62, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_1d", 1, 2, 2, 1); __PYX_ERR(1, 67, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_1d") < 0)) __PYX_ERR(1, 62, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_1d") < 0)) __PYX_ERR(1, 67, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2774,17 +2925,17 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_13find_cluster_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 62, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 67, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_1d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 62, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_1d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 67, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pycll.cluster.FindClusterStatistic.find_cluster_statistics_1d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 62, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 67, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_12find_cluster_statistics_1d(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria);
 
   /* function exit code */
@@ -2810,11 +2961,11 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_12find_cluster_
   __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 62, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 67, __pyx_L1_error)
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0];
 
-  /* "pycll/cluster.pyx":63
+  /* "pycll/cluster.pyx":68
  * 
  *   def find_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):
  *     return self.thisptr.findClusterStatistic1D(statistics, criteria)             # <<<<<<<<<<<<<<
@@ -2822,14 +2973,14 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_12find_cluster_
  *   def find_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_double(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 63, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic1D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 63, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_double(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 68, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic1D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":62
+  /* "pycll/cluster.pyx":67
  *     return self.thisptr.clusterFlags3D
  * 
  *   def find_cluster_statistics_1d(self, np.ndarray[double, ndim=1] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -2857,7 +3008,7 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_12find_cluster_
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":65
+/* "pycll/cluster.pyx":70
  *     return self.thisptr.findClusterStatistic1D(statistics, criteria)
  * 
  *   def find_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -2896,11 +3047,11 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_15find_cluster_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_2d", 1, 2, 2, 1); __PYX_ERR(1, 65, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_2d", 1, 2, 2, 1); __PYX_ERR(1, 70, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_2d") < 0)) __PYX_ERR(1, 65, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_2d") < 0)) __PYX_ERR(1, 70, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2909,17 +3060,17 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_15find_cluster_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 65, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 70, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 65, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 70, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pycll.cluster.FindClusterStatistic.find_cluster_statistics_2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 65, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 70, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_statistics_2d(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria);
 
   /* function exit code */
@@ -2945,11 +3096,11 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_
   __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(1, 65, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(1, 70, __pyx_L1_error)
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1];
 
-  /* "pycll/cluster.pyx":66
+  /* "pycll/cluster.pyx":71
  * 
  *   def find_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):
  *     return self.thisptr.findClusterStatistic2D(statistics, criteria)             # <<<<<<<<<<<<<<
@@ -2957,14 +3108,14 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_
  *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 66, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic2D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 66, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 71, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic2D(__pyx_t_1, __pyx_v_criteria)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":65
+  /* "pycll/cluster.pyx":70
  *     return self.thisptr.findClusterStatistic1D(statistics, criteria)
  * 
  *   def find_cluster_statistics_2d(self, np.ndarray[double, ndim=2] statistics, double criteria):             # <<<<<<<<<<<<<<
@@ -2992,11 +3143,12 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_14find_cluster_
   return __pyx_r;
 }
 
-/* "pycll/cluster.pyx":68
+/* "pycll/cluster.pyx":73
  *     return self.thisptr.findClusterStatistic2D(statistics, criteria)
  * 
  *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
  *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
+ * 
  */
 
 /* Python wrapper */
@@ -3033,17 +3185,17 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, 1); __PYX_ERR(1, 68, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, 1); __PYX_ERR(1, 73, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_neighbors)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, 2); __PYX_ERR(1, 68, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, 2); __PYX_ERR(1, 73, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_3d") < 0)) __PYX_ERR(1, 68, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_3d") < 0)) __PYX_ERR(1, 73, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3053,18 +3205,18 @@ static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_statistics = ((PyArrayObject *)values[0]);
-    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 68, __pyx_L3_error)
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 73, __pyx_L3_error)
     __pyx_v_neighbors = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 68, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 73, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pycll.cluster.FindClusterStatistic.find_cluster_statistics_3d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 68, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 73, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_statistics_3d(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria, __pyx_v_neighbors);
 
   /* function exit code */
@@ -3091,29 +3243,32 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_
   __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(1, 68, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(1, 73, __pyx_L1_error)
   }
   __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_statistics.diminfo[2].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_statistics.diminfo[2].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[2];
 
-  /* "pycll/cluster.pyx":69
+  /* "pycll/cluster.pyx":74
  * 
  *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)             # <<<<<<<<<<<<<<
+ * 
+ *   def find_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 69, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 69, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic3D(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 69, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 74, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 74, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic3D(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pycll/cluster.pyx":68
+  /* "pycll/cluster.pyx":73
  *     return self.thisptr.findClusterStatistic2D(statistics, criteria)
  * 
  *   def find_cluster_statistics_3d(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
  *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
+ * 
  */
 
   /* function exit code */
@@ -3136,6 +3291,150 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_
   return __pyx_r;
 }
 
+/* "pycll/cluster.pyx":76
+ *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
+ * 
+ *   def find_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_19find_cluster_statistics_3d_with_neighbors_allfreq(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_19find_cluster_statistics_3d_with_neighbors_allfreq(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_statistics = 0;
+  double __pyx_v_criteria;
+  PyObject *__pyx_v_neighbors = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("find_cluster_statistics_3d_with_neighbors_allfreq (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_statistics,&__pyx_n_s_criteria,&__pyx_n_s_neighbors,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_statistics)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_criteria)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d_with_neighbors_allfreq", 1, 3, 3, 1); __PYX_ERR(1, 76, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_neighbors)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d_with_neighbors_allfreq", 1, 3, 3, 2); __PYX_ERR(1, 76, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "find_cluster_statistics_3d_with_neighbors_allfreq") < 0)) __PYX_ERR(1, 76, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_statistics = ((PyArrayObject *)values[0]);
+    __pyx_v_criteria = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_criteria == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 76, __pyx_L3_error)
+    __pyx_v_neighbors = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("find_cluster_statistics_3d_with_neighbors_allfreq", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 76, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pycll.cluster.FindClusterStatistic.find_cluster_statistics_3d_with_neighbors_allfreq", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_statistics), __pyx_ptype_5numpy_ndarray, 1, "statistics", 0))) __PYX_ERR(1, 76, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_18find_cluster_statistics_3d_with_neighbors_allfreq(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), __pyx_v_statistics, __pyx_v_criteria, __pyx_v_neighbors);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_18find_cluster_statistics_3d_with_neighbors_allfreq(struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, PyArrayObject *__pyx_v_statistics, double __pyx_v_criteria, PyObject *__pyx_v_neighbors) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_statistics;
+  __Pyx_Buffer __pyx_pybuffer_statistics;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::vector<std::vector<std::vector<double> > >  __pyx_t_1;
+  std::vector<std::vector<std::vector<int> > >  __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("find_cluster_statistics_3d_with_neighbors_allfreq", 0);
+  __pyx_pybuffer_statistics.pybuffer.buf = NULL;
+  __pyx_pybuffer_statistics.refcount = 0;
+  __pyx_pybuffernd_statistics.data = NULL;
+  __pyx_pybuffernd_statistics.rcbuffer = &__pyx_pybuffer_statistics;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer, (PyObject*)__pyx_v_statistics, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(1, 76, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_statistics.diminfo[0].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_statistics.diminfo[0].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_statistics.diminfo[1].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_statistics.diminfo[1].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_statistics.diminfo[2].strides = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_statistics.diminfo[2].shape = __pyx_pybuffernd_statistics.rcbuffer->pybuffer.shape[2];
+
+  /* "pycll/cluster.pyx":77
+ * 
+ *   def find_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):
+ *     return self.thisptr.findClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_double_3e____3e___(((PyObject *)__pyx_v_statistics)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 77, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 77, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_void_to_None(__pyx_v_self->thisptr->findClusterStatistic3DWithNeighborsAboutAllFreqs(__pyx_t_1, __pyx_v_criteria, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 77, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* "pycll/cluster.pyx":76
+ *     return self.thisptr.findClusterStatistic3D(statistics, criteria, neighbors)
+ * 
+ *   def find_cluster_statistics_3d_with_neighbors_allfreq(self, np.ndarray[double, ndim=3] statistics, double criteria, neighbors):             # <<<<<<<<<<<<<<
+ *     return self.thisptr.findClusterStatistic3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("pycll.cluster.FindClusterStatistic.find_cluster_statistics_3d_with_neighbors_allfreq", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_statistics.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
@@ -3143,19 +3442,19 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_16find_cluster_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_19__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_19__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_21__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_21__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_18__reduce_cython__(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__reduce_cython__(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_18__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self) {
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3197,19 +3496,19 @@ static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_18__reduce_cyth
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_21__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_21__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_23__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_5pycll_7cluster_20FindClusterStatistic_23__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__setstate_cython__(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_5pycll_7cluster_20FindClusterStatistic_22__setstate_cython__(((struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_20__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5pycll_7cluster_20FindClusterStatistic_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pycll_7cluster_FindClusterStatistic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6388,6 +6687,117 @@ static std::vector<std::vector<int> >  __pyx_convert_vector_from_py_std_3a__3a_v
   return __pyx_r;
 }
 
+static std::vector<std::vector<std::vector<int> > >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(PyObject *__pyx_v_o) {
+  std::vector<std::vector<std::vector<int> > >  __pyx_v_v;
+  PyObject *__pyx_v_item = NULL;
+  std::vector<std::vector<std::vector<int> > >  __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  Py_ssize_t __pyx_t_2;
+  PyObject *(*__pyx_t_3)(PyObject *);
+  PyObject *__pyx_t_4 = NULL;
+  std::vector<std::vector<int> >  __pyx_t_5;
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___", 0);
+
+  /* "vector.from_py":47
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(object o) except *:
+ *     cdef vector[X] v
+ *     for item in o:             # <<<<<<<<<<<<<<
+ *         v.push_back(<X>item)
+ *     return v
+ */
+  if (likely(PyList_CheckExact(__pyx_v_o)) || PyTuple_CheckExact(__pyx_v_o)) {
+    __pyx_t_1 = __pyx_v_o; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
+    __pyx_t_3 = NULL;
+  } else {
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_3)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 47, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      } else {
+        if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 47, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      }
+    } else {
+      __pyx_t_4 = __pyx_t_3(__pyx_t_1);
+      if (unlikely(!__pyx_t_4)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 47, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "vector.from_py":48
+ *     cdef vector[X] v
+ *     for item in o:
+ *         v.push_back(<X>item)             # <<<<<<<<<<<<<<
+ *     return v
+ * 
+ */
+    __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_int_3e___(__pyx_v_item); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_v_v.push_back(((std::vector<std::vector<int> > )__pyx_t_5));
+
+    /* "vector.from_py":47
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(object o) except *:
+ *     cdef vector[X] v
+ *     for item in o:             # <<<<<<<<<<<<<<
+ *         v.push_back(<X>item)
+ *     return v
+ */
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "vector.from_py":49
+ *     for item in o:
+ *         v.push_back(<X>item)
+ *     return v             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = __pyx_v_v;
+  goto __pyx_L0;
+
+  /* "vector.from_py":45
+ * 
+ * @cname("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___")
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef vector[X] v
+ *     for item in o:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("vector.from_py.__pyx_convert_vector_from_py_std_3a__3a_vector_3c_std_3a__3a_vector_3c_int_3e____3e___", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_item);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 /* "pair.to_py":158
  * 
  * @cname("__pyx_convert_pair_to_py_int____double")
@@ -6701,8 +7111,9 @@ static PyMethodDef __pyx_methods_5pycll_7cluster_FindMaxCluster[] = {
   {"find_max_cluster_statistics_1d", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_5find_max_cluster_statistics_1d, METH_VARARGS|METH_KEYWORDS, 0},
   {"find_max_cluster_statistics_2d", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_7find_max_cluster_statistics_2d, METH_VARARGS|METH_KEYWORDS, 0},
   {"find_max_cluster_statistics_3d", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_9find_max_cluster_statistics_3d, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_11__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_13__setstate_cython__, METH_O, 0},
+  {"find_max_cluster_statistics_3d_with_neighbors_allfreq", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_11find_max_cluster_statistics_3d_with_neighbors_allfreq, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_13__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_14FindMaxCluster_15__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -6804,8 +7215,9 @@ static PyMethodDef __pyx_methods_5pycll_7cluster_FindClusterStatistic[] = {
   {"find_cluster_statistics_1d", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_13find_cluster_statistics_1d, METH_VARARGS|METH_KEYWORDS, 0},
   {"find_cluster_statistics_2d", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_15find_cluster_statistics_2d, METH_VARARGS|METH_KEYWORDS, 0},
   {"find_cluster_statistics_3d", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_17find_cluster_statistics_3d, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_19__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_21__setstate_cython__, METH_O, 0},
+  {"find_cluster_statistics_3d_with_neighbors_allfreq", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_19find_cluster_statistics_3d_with_neighbors_allfreq, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_21__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_5pycll_7cluster_20FindClusterStatistic_23__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -7236,15 +7648,15 @@ static int __pyx_pymod_exec_cluster(PyObject *__pyx_pyinit_module)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_5pycll_7cluster_FindMaxCluster) < 0) __PYX_ERR(1, 25, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5pycll_7cluster_FindMaxCluster) < 0) __PYX_ERR(1, 27, __pyx_L1_error)
   __pyx_type_5pycll_7cluster_FindMaxCluster.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "FindMaxCluster", (PyObject *)&__pyx_type_5pycll_7cluster_FindMaxCluster) < 0) __PYX_ERR(1, 25, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pycll_7cluster_FindMaxCluster) < 0) __PYX_ERR(1, 25, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "FindMaxCluster", (PyObject *)&__pyx_type_5pycll_7cluster_FindMaxCluster) < 0) __PYX_ERR(1, 27, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pycll_7cluster_FindMaxCluster) < 0) __PYX_ERR(1, 27, __pyx_L1_error)
   __pyx_ptype_5pycll_7cluster_FindMaxCluster = &__pyx_type_5pycll_7cluster_FindMaxCluster;
-  if (PyType_Ready(&__pyx_type_5pycll_7cluster_FindClusterStatistic) < 0) __PYX_ERR(1, 43, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5pycll_7cluster_FindClusterStatistic) < 0) __PYX_ERR(1, 48, __pyx_L1_error)
   __pyx_type_5pycll_7cluster_FindClusterStatistic.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "FindClusterStatistic", (PyObject *)&__pyx_type_5pycll_7cluster_FindClusterStatistic) < 0) __PYX_ERR(1, 43, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pycll_7cluster_FindClusterStatistic) < 0) __PYX_ERR(1, 43, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "FindClusterStatistic", (PyObject *)&__pyx_type_5pycll_7cluster_FindClusterStatistic) < 0) __PYX_ERR(1, 48, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5pycll_7cluster_FindClusterStatistic) < 0) __PYX_ERR(1, 48, __pyx_L1_error)
   __pyx_ptype_5pycll_7cluster_FindClusterStatistic = &__pyx_type_5pycll_7cluster_FindClusterStatistic;
   /*--- Type import code ---*/
   __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "type", 
