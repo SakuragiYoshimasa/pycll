@@ -21,9 +21,11 @@ namespace ClusterUtils {
     double findMaxClusterStatistic1D(Statistics1D statistics, double criteria);
     double findMaxClusterStatistic2D(Statistics2D statistics, double criteria);
     double findMaxClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors);
+    double findMaxClusterStatistic3DWithNeighborsAboutAllFreq(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors);
   private:
     double dfs_2D(Statistics2D& statistics, double criteria, int x, int y);
     double dfs_3D(Statistics3D& statistics, double criteria, Neighbors& neighbors, int x, int y, int z);
+    double dfs_3DWithNeighborsAboutAllFreqs(Statistics3D& statistics, double criteria, NeighborsAboutAllFreq& neighbors, int x, int y, int z);
   };
 
   class FindCluster {

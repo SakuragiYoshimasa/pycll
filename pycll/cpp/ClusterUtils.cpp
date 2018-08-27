@@ -83,6 +83,39 @@ double FindMax::findMaxClusterStatistic3D(Statistics3D statistics, double criter
   return max;
 }
 
+double FindMax::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, double criteria, NeighborsAboutAllFreq &neighbors, int x, int y, int z){
+
+  if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
+
+  double sum = statistics[z][y][x];
+  statistics[z][y][x] = 0;
+
+  //自分の領域
+  for (int i = 0; i < 8; i ++){
+    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, x + dx[i], y + dy[i], z);
+  }
+
+  //他のチャネルまで
+  for(int n = 0; n < neighbors[y][z].size(); n++){
+    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, x, y, neighbors[z][y][n]);
+  }
+  return sum;
+}
+
+double FindMax::findMaxClusterStatistic3DWithNeighborsAboutAllFreq(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors){
+  double max = 0.0, sum = 0.0;
+
+  for (size_t z = 0; z < statistics.size(); z++){
+    for (size_t y = 0; y < statistics[z].size(); y++) {
+      for (size_t x = 0; x < statistics[z][y].size(); x++) {
+        sum = dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, x, y, z);
+        max = max < sum ? sum : max;
+      }
+    }
+  }
+  return max;
+}
+
 /*-------------------------------------------------------
 Find Cluster
 ---------------------------------------------------------*/
@@ -143,26 +176,6 @@ void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteri
   return;
 }
 
-void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors) {
-  clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
-  clusters = *new Clusters();
-  int clusterIndex = 1;
-  for (size_t z = 0; z < statistics.size(); z++){
-    for (size_t y = 0; y < statistics[z].size(); y++) {
-      for (size_t x = 0; x < statistics[z][y].size(); x++) {
-
-        double sum = dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
-
-        if (sum > 0){
-          clusters.push_back(std::pair<int, double>(clusterIndex, sum));
-          clusterIndex++;
-        }
-      }
-    }
-  }
-  return;
-}
-
 double FindCluster::dfs_2D(Statistics2D& statistics, double criteria, ClusterFlags2D& clusterFlags, int x, int y, int clusterIndex){
   if (statistics.size() <= y || y < 0 || statistics[y].size() <= x || x < 0 || statistics[y][x] < criteria) return 0;
 
@@ -199,6 +212,26 @@ double FindCluster::dfs_3D(Statistics3D& statistics, double criteria, Neighbors&
   return sum;
 }
 
+void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreq(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors) {
+  clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
+  clusters = *new Clusters();
+  int clusterIndex = 1;
+  for (size_t z = 0; z < statistics.size(); z++){
+    for (size_t y = 0; y < statistics[z].size(); y++) {
+      for (size_t x = 0; x < statistics[z][y].size(); x++) {
+
+        double sum = dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
+
+        if (sum > 0){
+          clusters.push_back(std::pair<int, double>(clusterIndex, sum));
+          clusterIndex++;
+        }
+      }
+    }
+  }
+  return;
+}
+
 double FindCluster::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, double criteria, NeighborsAboutAllFreq &neighbors, ClusterFlags3D &clusterFlags, int x, int y, int z, int clusterIndex){
   if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
 
@@ -208,7 +241,7 @@ double FindCluster::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, d
 
   //自分の領域
   for (int i = 0; i < 8; i ++){
-    sum += dfs_3D(statistics, criteria, neighbors, clusterFlags, x + dx[i], y + dy[i], z, clusterIndex);
+    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags, x + dx[i], y + dy[i], z, clusterIndex);
   }
 
   //他のチャネルまで
