@@ -1,7 +1,7 @@
 #include "ClusterUtils.h"
 
 using namespace ClusterUtils;
-
+using namespace std;
 
 /*-------------------------------------------------------
 Find Max cluster statistics
@@ -143,6 +143,26 @@ void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteri
   return;
 }
 
+void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors) {
+  clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
+  clusters = *new Clusters();
+  int clusterIndex = 1;
+  for (size_t z = 0; z < statistics.size(); z++){
+    for (size_t y = 0; y < statistics[z].size(); y++) {
+      for (size_t x = 0; x < statistics[z][y].size(); x++) {
+
+        double sum = dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
+
+        if (sum > 0){
+          clusters.push_back(std::pair<int, double>(clusterIndex, sum));
+          clusterIndex++;
+        }
+      }
+    }
+  }
+  return;
+}
+
 double FindCluster::dfs_2D(Statistics2D& statistics, double criteria, ClusterFlags2D& clusterFlags, int x, int y, int clusterIndex){
   if (statistics.size() <= y || y < 0 || statistics[y].size() <= x || x < 0 || statistics[y][x] < criteria) return 0;
 
@@ -175,6 +195,35 @@ double FindCluster::dfs_3D(Statistics3D& statistics, double criteria, Neighbors&
     for (int i = 0; i < 8; i ++){
       sum += dfs_3D(statistics, criteria, neighbors, clusterFlags, x + dx[i], y + dy[i], neighbors[z][n], clusterIndex);
     }
+  }
+  return sum;
+}
+
+double FindCluster::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, double criteria, NeighborsAboutAllFreq &neighbors, ClusterFlags3D &clusterFlags, int x, int y, int z, int clusterIndex){
+  if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
+
+  double sum = statistics[z][y][x];
+  statistics[z][y][x] = 0;
+  clusterFlags[z][y][x] = clusterIndex;
+
+  //自分の領域
+  for (int i = 0; i < 8; i ++){
+    sum += dfs_3D(statistics, criteria, neighbors, clusterFlags, x + dx[i], y + dy[i], z, clusterIndex);
+  }
+
+  //他のチャネルまで
+  //z: pair index, y: freq index, x:time index
+  //探索の際のneighborsのindexにfreqを追加, freqに相当するのはy
+  for(int n = 0; n < neighbors[z][y].size(); n++){
+
+    sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags, x, y, neighbors[z][y][n], clusterIndex);
+
+    //周波数ごとに定義されているので、この場合周波数的に隣接している箇所は探索しないようにする
+    //今まで26近傍だったのを 8 + 2 近傍的に
+    //つまり周波数,時間的に斜めのところは覗く
+    //for (int i = 0; i < 8; i ++){
+    //  sum += dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags, x + dx[i], y + dy[i], neighbors[z][n], clusterIndex);
+    //}
   }
   return sum;
 }
