@@ -4,10 +4,10 @@
 #include <vector>
 #include <iostream>
 
-typedef std::vector<std::pair<int, double> > Clusters;
-typedef std::vector<double> Statistics1D;
-typedef std::vector< std::vector<double> > Statistics2D;
-typedef std::vector< std::vector< std::vector<double> > > Statistics3D;
+typedef std::vector<std::pair<int, float> > Clusters;
+typedef std::vector<float> Statistics1D;
+typedef std::vector< std::vector<float> > Statistics2D;
+typedef std::vector< std::vector< std::vector<float> > > Statistics3D;
 typedef std::vector< std::vector<int> > Neighbors;
 typedef std::vector< std::vector< std::vector<int> > > NeighborsAboutAllFreq; //freq, pos, neighbors
 typedef std::vector<int> ClusterFlags1D;
@@ -18,14 +18,14 @@ namespace ClusterUtils {
 
   class FindMax {
   public:
-    double findMaxClusterStatistic1D(Statistics1D statistics, double criteria);
-    double findMaxClusterStatistic2D(Statistics2D statistics, double criteria);
-    double findMaxClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors);
-    double findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors);
+    float findMaxClusterStatistic1D(Statistics1D statistics, float criteria);
+    float findMaxClusterStatistic2D(Statistics2D statistics, float criteria);
+    float findMaxClusterStatistic3D(Statistics3D statistics, float criteria, Neighbors neighbors);
+    float findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, float criteria, NeighborsAboutAllFreq neighbors);
   private:
-    double dfs_2D(Statistics2D& statistics, double criteria, int x, int y);
-    double dfs_3D(Statistics3D& statistics, double criteria, Neighbors& neighbors, int x, int y, int z);
-    double dfs_3DWithNeighborsAboutAllFreqs(Statistics3D& statistics, double criteria, NeighborsAboutAllFreq& neighbors, int x, int y, int z);
+    float dfs_2D(Statistics2D& statistics, float criteria, int x, int y);
+    float dfs_3D(Statistics3D& statistics, float criteria, Neighbors& neighbors, int x, int y, int z);
+    float dfs_3DWithNeighborsAboutAllFreqs(Statistics3D& statistics, float criteria, NeighborsAboutAllFreq& neighbors, int x, int y, int z);
   };
 
   class FindCluster {
@@ -34,14 +34,14 @@ namespace ClusterUtils {
     ClusterFlags1D clusterFlags1D;
     ClusterFlags2D clusterFlags2D;
     ClusterFlags3D clusterFlags3D;
-    void findClusterStatistic1D(Statistics1D statistics, double criteria);
-    void findClusterStatistic2D(Statistics2D statistics, double criteria);
-    void findClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors);
-    void findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors);
+    void findClusterStatistic1D(Statistics1D statistics, float criteria);
+    void findClusterStatistic2D(Statistics2D statistics, float criteria);
+    void findClusterStatistic3D(Statistics3D statistics, float criteria, Neighbors neighbors);
+    void findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, float criteria, NeighborsAboutAllFreq neighbors);
   private:
-    double dfs_2D(Statistics2D& statistics, double criteria, ClusterFlags2D& clusterFlugs, int x, int y, int clusterIndex);
-    double dfs_3D(Statistics3D& statistics, double criteria, Neighbors& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex);
-    double dfs_3DWithNeighborsAboutAllFreqs(Statistics3D& statistics, double criteria, NeighborsAboutAllFreq& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex);
+    float dfs_2D(Statistics2D& statistics, float criteria, ClusterFlags2D& clusterFlugs, int x, int y, int clusterIndex);
+    float dfs_3D(Statistics3D& statistics, float criteria, Neighbors& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex);
+    float dfs_3DWithNeighborsAboutAllFreqs(Statistics3D& statistics, float criteria, NeighborsAboutAllFreq& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex);
   };
 }
 

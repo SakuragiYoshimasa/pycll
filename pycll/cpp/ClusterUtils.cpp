@@ -6,8 +6,8 @@ using namespace std;
 /*-------------------------------------------------------
 Find Max cluster statistics
 ---------------------------------------------------------*/
-double FindMax::findMaxClusterStatistic1D(Statistics1D statistics, double criteria){
-  double max = 0.0, sum = 0.0;
+float FindMax::findMaxClusterStatistic1D(Statistics1D statistics, float criteria){
+  float max = 0.0, sum = 0.0;
 
   for (size_t i = 0; i < statistics.size(); i++){
     if(statistics[i] >= criteria) sum += statistics[i];
@@ -19,11 +19,11 @@ double FindMax::findMaxClusterStatistic1D(Statistics1D statistics, double criter
 int dx[8] = {1,0,-1,0,1,1,-1,-1};
 int dy[8] = {0,1,0,-1,1,-1,1,-1};
 
-double FindMax::dfs_2D(Statistics2D& statistics, double criteria, int x, int y) {
+float FindMax::dfs_2D(Statistics2D& statistics, float criteria, int x, int y) {
 
   if (statistics.size() <= y || y < 0 || statistics[y].size() <= x || x < 0 || statistics[y][x] < criteria) return 0;
 
-  double sum = statistics[y][x];
+  float sum = statistics[y][x];
   statistics[y][x] = 0;
 
   for (int i = 0; i < 8; i ++){
@@ -32,8 +32,8 @@ double FindMax::dfs_2D(Statistics2D& statistics, double criteria, int x, int y) 
   return sum;
 }
 
-double FindMax::findMaxClusterStatistic2D(Statistics2D statistics, double criteria){
-  double max = 0.0, sum = 0.0;
+float FindMax::findMaxClusterStatistic2D(Statistics2D statistics, float criteria){
+  float max = 0.0, sum = 0.0;
 
   for (size_t i = 0; i < statistics.size(); i++){
     for (size_t j = 0; j < statistics[i].size(); j++) {
@@ -45,11 +45,11 @@ double FindMax::findMaxClusterStatistic2D(Statistics2D statistics, double criter
 }
 
 
-double FindMax::dfs_3D(Statistics3D& statistics, double criteria, Neighbors& neighbors, int x, int y, int z){
+float FindMax::dfs_3D(Statistics3D& statistics, float criteria, Neighbors& neighbors, int x, int y, int z){
 
   if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
 
-  double sum = statistics[z][y][x];
+  float sum = statistics[z][y][x];
   statistics[z][y][x] = 0;
 
   //自分の領域
@@ -69,8 +69,8 @@ double FindMax::dfs_3D(Statistics3D& statistics, double criteria, Neighbors& nei
 }
 
 //neighbors[i] statistics[i]が意味するチャネルに隣接するチャネルのindexの集合
-double FindMax::findMaxClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors){
-  double max = 0.0, sum = 0.0;
+float FindMax::findMaxClusterStatistic3D(Statistics3D statistics, float criteria, Neighbors neighbors){
+  float max = 0.0, sum = 0.0;
 
   for (size_t z = 0; z < statistics.size(); z++){
     for (size_t y = 0; y < statistics[z].size(); y++) {
@@ -83,11 +83,11 @@ double FindMax::findMaxClusterStatistic3D(Statistics3D statistics, double criter
   return max;
 }
 
-double FindMax::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, double criteria, NeighborsAboutAllFreq &neighbors, int x, int y, int z){
+float FindMax::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, float criteria, NeighborsAboutAllFreq &neighbors, int x, int y, int z){
 
   if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
 
-  double sum = statistics[z][y][x];
+  float sum = statistics[z][y][x];
   statistics[z][y][x] = 0;
 
   //自分の領域
@@ -102,8 +102,8 @@ double FindMax::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, doubl
   return sum;
 }
 
-double FindMax::findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors){
-  double max = 0.0, sum = 0.0;
+float FindMax::findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, float criteria, NeighborsAboutAllFreq neighbors){
+  float max = 0.0, sum = 0.0;
 
   for (size_t z = 0; z < statistics.size(); z++){
     for (size_t y = 0; y < statistics[z].size(); y++) {
@@ -120,11 +120,11 @@ double FindMax::findMaxClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D
 Find Cluster
 ---------------------------------------------------------*/
 
-void FindCluster::findClusterStatistic1D(Statistics1D statistics, double criteria) {
+void FindCluster::findClusterStatistic1D(Statistics1D statistics, float criteria) {
 
   clusterFlags1D = *new ClusterFlags1D(statistics.size());
   clusters = *new Clusters();
-  double sum = 0.0;
+  float sum = 0.0;
   int clusterIndex = 1;
 
   for (size_t i = 0; i < statistics.size(); i++){
@@ -139,16 +139,16 @@ void FindCluster::findClusterStatistic1D(Statistics1D statistics, double criteri
   return;
 }
 
-void FindCluster::findClusterStatistic2D(Statistics2D statistics, double criteria){
+void FindCluster::findClusterStatistic2D(Statistics2D statistics, float criteria){
   clusterFlags2D = *new ClusterFlags2D(statistics.size(), ClusterFlags1D(statistics[0].size()));
   clusters = *new Clusters();
   int clusterIndex = 1;
 
   for (size_t i = 0; i < statistics.size(); i++){
     for (size_t j = 0; j < statistics[i].size(); j++) {
-      double sum = dfs_2D(statistics, criteria, clusterFlags2D, j, i, clusterIndex);
+      float sum = dfs_2D(statistics, criteria, clusterFlags2D, j, i, clusterIndex);
       if (sum > 0){
-        clusters.push_back(std::pair<int, double>(clusterIndex, sum));
+        clusters.push_back(std::pair<int, float>(clusterIndex, sum));
         clusterIndex++;
       }
     }
@@ -156,7 +156,7 @@ void FindCluster::findClusterStatistic2D(Statistics2D statistics, double criteri
   return;
 }
 
-void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteria, Neighbors neighbors) {
+void FindCluster::findClusterStatistic3D(Statistics3D statistics, float criteria, Neighbors neighbors) {
   clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
   clusters = *new Clusters();
   int clusterIndex = 1;
@@ -164,10 +164,10 @@ void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteri
     for (size_t y = 0; y < statistics[z].size(); y++) {
       for (size_t x = 0; x < statistics[z][y].size(); x++) {
 
-        double sum = dfs_3D(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
+        float sum = dfs_3D(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
 
         if (sum > 0){
-          clusters.push_back(std::pair<int, double>(clusterIndex, sum));
+          clusters.push_back(std::pair<int, float>(clusterIndex, sum));
           clusterIndex++;
         }
       }
@@ -176,10 +176,10 @@ void FindCluster::findClusterStatistic3D(Statistics3D statistics, double criteri
   return;
 }
 
-double FindCluster::dfs_2D(Statistics2D& statistics, double criteria, ClusterFlags2D& clusterFlags, int x, int y, int clusterIndex){
+float FindCluster::dfs_2D(Statistics2D& statistics, float criteria, ClusterFlags2D& clusterFlags, int x, int y, int clusterIndex){
   if (statistics.size() <= y || y < 0 || statistics[y].size() <= x || x < 0 || statistics[y][x] < criteria) return 0;
 
-  double sum = statistics[y][x];
+  float sum = statistics[y][x];
   statistics[y][x] = 0;
   clusterFlags[y][x] = clusterIndex;
 
@@ -189,10 +189,10 @@ double FindCluster::dfs_2D(Statistics2D& statistics, double criteria, ClusterFla
   return sum;
 }
 
-double FindCluster::dfs_3D(Statistics3D& statistics, double criteria, Neighbors& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex) {
+float FindCluster::dfs_3D(Statistics3D& statistics, float criteria, Neighbors& neighbors, ClusterFlags3D& clusterFlags, int x, int y, int z, int clusterIndex) {
   if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
 
-  double sum = statistics[z][y][x];
+  float sum = statistics[z][y][x];
   statistics[z][y][x] = 0;
   clusterFlags[z][y][x] = clusterIndex;
 
@@ -212,7 +212,7 @@ double FindCluster::dfs_3D(Statistics3D& statistics, double criteria, Neighbors&
   return sum;
 }
 
-void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, double criteria, NeighborsAboutAllFreq neighbors) {
+void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D statistics, float criteria, NeighborsAboutAllFreq neighbors) {
   clusterFlags3D = *new ClusterFlags3D(statistics.size(), ClusterFlags2D(statistics[0].size(), ClusterFlags1D(statistics[0][0].size())));
   clusters = *new Clusters();
   int clusterIndex = 1;
@@ -220,10 +220,10 @@ void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D 
     for (size_t y = 0; y < statistics[z].size(); y++) {
       for (size_t x = 0; x < statistics[z][y].size(); x++) {
 
-        double sum = dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
+        float sum = dfs_3DWithNeighborsAboutAllFreqs(statistics, criteria, neighbors, clusterFlags3D, x, y, z, clusterIndex);
 
         if (sum > 0){
-          clusters.push_back(std::pair<int, double>(clusterIndex, sum));
+          clusters.push_back(std::pair<int, float>(clusterIndex, sum));
           clusterIndex++;
         }
       }
@@ -232,10 +232,10 @@ void FindCluster::findClusterStatistic3DWithNeighborsAboutAllFreqs(Statistics3D 
   return;
 }
 
-double FindCluster::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, double criteria, NeighborsAboutAllFreq &neighbors, ClusterFlags3D &clusterFlags, int x, int y, int z, int clusterIndex){
+float FindCluster::dfs_3DWithNeighborsAboutAllFreqs(Statistics3D &statistics, float criteria, NeighborsAboutAllFreq &neighbors, ClusterFlags3D &clusterFlags, int x, int y, int z, int clusterIndex){
   if (statistics.size() <= z || z < 0 || statistics[z].size() <= y || y < 0 || statistics[z][y].size() <= x || x < 0 || statistics[z][y][x] < criteria) return 0;
 
-  double sum = statistics[z][y][x];
+  float sum = statistics[z][y][x];
   statistics[z][y][x] = 0;
   clusterFlags[z][y][x] = clusterIndex;
 

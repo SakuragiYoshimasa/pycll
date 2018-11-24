@@ -1,15 +1,16 @@
 # coding:utf-8
 import numpy as np
 cimport numpy as np
+ctypedef np.float32_t FLOAT_t
 # params
 #   samples: sorted statistics numpy array on random partitions
 #   target: a test statistic actually observed
 # return
 #   p-value
-def non_parametric_stest(np.ndarray[double, ndim=1] samples, double target):
-    cdef double sample_size
-    cdef double position
-    cdef double p
+def non_parametric_stest(np.ndarray[FLOAT_t, ndim=1] samples, FLOAT_t target):
+    cdef FLOAT_t sample_size
+    cdef FLOAT_t position
+    cdef FLOAT_t p
     sample_size = len(samples)
     position = samples.searchsorted(target)
     p = 1.0 - position / sample_size
